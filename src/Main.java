@@ -1,9 +1,10 @@
 
 public class Main {
     public static void main(String[] args) {
-        //partOneDemo();
-        //partTwoDemo();
+        partOneDemo();
+        partTwoDemo();
         partThreeDemo();
+        partFourDemo();
 
 
 
@@ -101,5 +102,69 @@ public class Main {
         course.setTextbooks(textbooks);
 
         course.print();
+    }
+    public static void partFourDemo(){
+        Folder demo1 = new Folder();
+        demo1.setName("demo1");
+
+        Folder sourceFiles = new Folder();
+        sourceFiles.setName("Source Files");
+
+        Folder app = new Folder();
+        app.setName("app");
+        Folder phalcon = new Folder();
+        phalcon.setName(".phalcon");
+
+        String[] appSubFolders = {"config", "controllers", "library", "migrations", "models", "views"};
+        for (String name : appSubFolders) {
+            Folder subFolder = new Folder();
+            subFolder.setName(name);
+            app.addSubFolder(subFolder);
+        }
+
+        Folder cache = new Folder();
+        cache.setName("cache");
+
+        Folder publicFolder = new Folder();
+        publicFolder.setName("public");
+
+        String[] publicFiles = {".htaccess", ".htrouter.php", "index.html"};
+        for (String fileName : publicFiles) {
+            File file = new File();
+            file.setName(fileName);
+            publicFolder.addFile(file);
+        }
+
+        Folder includePath = new Folder();
+        includePath.setName("Include Path");
+
+        Folder remoteFiles = new Folder();
+        remoteFiles.setName("Remote Files");
+
+
+        sourceFiles.addSubFolder(phalcon);
+        sourceFiles.addSubFolder(app);
+        sourceFiles.addSubFolder(cache);
+        sourceFiles.addSubFolder(publicFolder);
+
+        demo1.addSubFolder(sourceFiles);
+        demo1.addSubFolder(includePath);
+        demo1.addSubFolder(remoteFiles);
+
+        // 1
+        System.out.println("Initial File System Structure:");
+        demo1.print("");
+        System.out.println();
+
+        // 2
+        sourceFiles.deleteSubFolder("app");
+        System.out.println("After Deleting 'app' Folder:");
+        demo1.print("");
+        System.out.println();
+
+        // 3
+        sourceFiles.deleteSubFolder("public");
+        System.out.println("After Deleting 'public' Folder:");
+        demo1.print("");
     }
 }

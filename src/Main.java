@@ -1,8 +1,14 @@
 
 public class Main {
     public static void main(String[] args) {
-        // part 1
+        partOneDemo();
+        partTwoDemo();
 
+
+
+    }
+
+    public static void partOneDemo(){
         SalariedEmployee joe = new SalariedEmployee();
         SalariedEmployee renwa = new SalariedEmployee();
         HourlyEmployee stephanie = new HourlyEmployee();
@@ -49,6 +55,24 @@ public class Main {
         mahnaz.setSSN("777-77-7777");
         mahnaz.setCommissionRate(22);
         mahnaz.setGrossSales(40000);
+    }
+    public static void partTwoDemo(){
+        Ship [] ships = new Ship[3];
+        ships[0] = new Ship();
+        ships[0].setShipName("Uni");
+        ships[0].setShipYearBuilt("2022");
 
+        ships[1] = new CruiseShip();
+        ships[1].setShipName("Moe");
+        ((CruiseShip)ships[1]).setMaxPassenger(666);
+
+        ships[2] = new CargoShip();
+        ships[2].setShipName("Tori");
+        ((CargoShip)ships[2]).setCargoCapInTon(9999);
+
+        // Loop to call each object's print function
+        for (Ship ship : ships) {
+            ship.funcPrint();
+        }
     }
 }

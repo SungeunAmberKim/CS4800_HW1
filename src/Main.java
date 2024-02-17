@@ -1,8 +1,9 @@
 
 public class Main {
     public static void main(String[] args) {
-        partOneDemo();
-        partTwoDemo();
+        //partOneDemo();
+        //partTwoDemo();
+        partThreeDemo();
 
 
 
@@ -74,5 +75,31 @@ public class Main {
         for (Ship ship : ships) {
             ship.funcPrint();
         }
+    }
+    public static void partThreeDemo(){
+        Instructor[] instructors = {new Instructor(), new Instructor()};
+        instructors[0].setFirstName("Nima");
+        instructors[0].setLastName("Davarpanah");
+        instructors[0].setOfficeNumber("3-2636");
+
+        instructors[1].setFirstName("Uni");
+        instructors[1].setLastName("Kim");
+        instructors[1].setOfficeNumber("5-0028");
+
+        Textbook[] textbooks = {new Textbook(), new Textbook()};
+        textbooks[0].setTitle("Clean Code");
+        textbooks[0].setAuthor("Robert C. Martin");
+        textbooks[0].setPublisher("Pearson");
+
+        textbooks[1].setTitle("Clean Litterbox");
+        textbooks[1].setAuthor("Moe Park");
+        textbooks[1].setPublisher("ChaChaCha");
+
+        Course course = new Course();
+        course.setCourseName("Software Engineering");
+        course.setInstructors(instructors);
+        course.setTextbooks(textbooks);
+
+        course.print();
     }
 }

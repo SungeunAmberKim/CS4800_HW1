@@ -12,5 +12,4 @@ public class HourlyEmployee extends Employee {
     public double getNumberOfHoursWorked() { return this.numberOfHoursWorked; }
     public void setNumberOfHoursWorked(double hours) { this.numberOfHoursWorked = hours; }
 
-
 }
